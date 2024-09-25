@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: devsecops
+  name: devsecops
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devsecops
+  template:
+    metadata:
+      labels:
+        app: devsecops
+    spec:
+      containers:
+      - image: vjdsteve/devsecops:latest  # Updated with your Docker Hub image
+        name: devsecops-container
+        ports:
+        - containerPort: 8080
